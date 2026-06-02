@@ -1,3 +1,1 @@
-export function animations() {
-    
-}
+export function animations() {}
