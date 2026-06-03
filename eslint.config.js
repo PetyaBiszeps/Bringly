@@ -2,16 +2,21 @@ import stylistic from '@stylistic/eslint-plugin'
 import globals from 'globals'
 
 export default [{
-  plugins: {
-    '@stylistic': stylistic
-  },
   rules: {
     'no-console': 'warn',
-    'no-extra-semi': 'error',
-    'semi': ['error', 'never'],
-    'quotes': ['error', 'single'],
-    'comma-dangle': ['error', 'never'],
-    'object-curly-spacing': ['error', 'always'],
+    'no-unreachable': 'error',
+    'curly': ['error', 'all'],
+    'no-implicit-coercion': 'error',
+    'no-useless-assignment': 'error',
+    'preserve-caught-error': 'error',
+    'eqeqeq': ['error', 'always', {
+      null: 'ignore'
+    }],
+    'no-unused-vars': ['warn', {
+      argsIgnorePattern: '^_',
+      varsIgnorePattern: '^_',
+      caughtErrorsIgnorePattern: '^_'
+    }],
 
     '@stylistic/indent': ['error', 2],
     '@stylistic/semi': ['error', 'never'],
@@ -22,12 +27,33 @@ export default [{
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
     '@stylistic/brace-style': ['error', '1tbs', {
       allowSingleLine: true
+    }],
+    '@stylistic/key-spacing': ['error', {
+      beforeColon: false,
+      afterColon: true
+    }],
+    '@stylistic/comma-spacing': ['error', {
+      before: false,
+      after: true
+    }],
+    '@stylistic/arrow-spacing': ['error', {
+      before: true,
+      after: true
+    }],
+    '@stylistic/space-before-function-paren': ['error', {
+      named: 'never',
+      anonymous: 'always',
+      asyncArrow: 'always'
     }]
+  },
+  plugins: {
+    '@stylistic': stylistic
   },
   languageOptions: {
     sourceType: 'module',
     globals: {
-      ...globals.browser
+      ...globals.browser,
+      ...globals.node
     }
   }
 }]
