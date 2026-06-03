@@ -1,4 +1,4 @@
-# Responsive Website, using HTML, SASS and JavaScript
+# Responsive Website, using HTML, CSS and JavaScript
 
 ### Light theme
 <img src="src/assets/images/showcase1.png" alt="screenshot_1">
